@@ -1,0 +1,18 @@
+[package]
+name = "reiner"
+version = "0.1.0"
+edition = "2024"
+authors = ["Akashiya"]
+description = "A simple cli tool to manage and configure your windows wallpaper."
+repository = "https://github.com/Akashiya-Chime/reiner"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5.32", features = ["derive"] }
+
+[dependencies.windows]
+version = "0.61"
+features = [
+    "Win32_UI_Shell",
+    "Win32_System_Com"
+]
