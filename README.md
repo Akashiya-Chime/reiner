@@ -12,7 +12,7 @@ Windows 8 or higher.
 
 ## Install
 
-`todo!()`
+Download the binary and put it in your `%Path%`
 
 ## Usage
 
