@@ -18,15 +18,13 @@ Windows 8 or higher.
 
 ```bash
 # Set current wallpaper
-wallpaper --set-wallpaper "/path/to/your/wallpaper.png"
-# Set wallpaper directory
-wallpaper --set-folder "/path/to/your/wallpaper/dir"
+reiner --set-wallpaper "/path/to/your/wallpaper.png"
 # Next picture
-wallpaper --next
+reiner -n
 # Previous picture
-wallpaper --previous
-# Set change interval to 10 minutes(0 means never change)
-wallpaper --interval 10
-# Set wallpaper if you have more screens
+reiner -p
+# Might do some expand
 todo!()
 ```
+
+`-n` and `-p` option will check your current wallpaper's directory, so you need just put all your wallpapers in one directory and use `--set-wallpaper` once.

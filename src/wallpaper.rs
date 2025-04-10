@@ -1,3 +1,5 @@
+use std::{ffi::OsString, os::windows::ffi::OsStringExt};
+
 use windows::{
     core::{Result, HSTRING},
     Win32::{
@@ -29,5 +31,14 @@ impl Wallpaper {
             // Expand: set different wallpapers for different monitors
             self.interface.SetWallpaper(None, wallpaper)
         }
+    }
+
+    pub fn get_wallpaper(&self) -> OsString {
+        let wallpaper = unsafe {
+            // Main screen
+            self.interface.GetWallpaper(&HSTRING::from("0")).unwrap()
+        };
+
+        return unsafe { OsString::from_wide(wallpaper.as_wide()) }
     }
 }
