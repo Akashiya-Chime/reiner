@@ -84,7 +84,6 @@ impl Configuration {
 pub fn get_args(wp: Wallpaper) {
     let args = Args::parse();
     let config: Configuration = Configuration::new(&wp.get_wallpaper());
-    println!("folder: {:?}\nwallpaper: {:?}", config.folder, config.current_wallpaper);
 
     if let Some(wallpaper) = args.set_wallpaper {
         println!("Set wallpaper: {:?}", wallpaper);
@@ -93,13 +92,11 @@ pub fn get_args(wp: Wallpaper) {
 
     if args.next {
         let next_wallpaper = config.folder.join(config.get_next_wallpaper()).into_os_string();
-        println!("set next wallpaper: {:?}", next_wallpaper);
         wp.set_wallpaper(&HSTRING::from(next_wallpaper)).unwrap();
     }
 
     if args.previous {
         let previous_wallpaper = config.folder.join(config.get_previous_wallpaper()).into_os_string();
-        println!("set previous wallpaper: {:?}", previous_wallpaper);
         wp.set_wallpaper(&HSTRING::from(previous_wallpaper)).unwrap();
     }
 }
